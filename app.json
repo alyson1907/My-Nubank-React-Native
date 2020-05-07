@@ -1,0 +1,17 @@
+{
+  "name": "treinamento-alyson-native",
+  "displayName": "treinamento-alyson-native",
+  "expo": {
+    "name": "treinamento-alyson-native",
+    "slug": "treinamento-alyson-native",
+    "version": "1.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
