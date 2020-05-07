@@ -1,6 +1,7 @@
 import React from 'react'
-import { Text, Image } from 'react-native'
+import { Image } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
+import Text from './Text'
 
 import Icon from 'react-native-vector-icons/AntDesign'
 import Colors from '../Colors'

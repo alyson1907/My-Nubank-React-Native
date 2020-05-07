@@ -1,5 +1,6 @@
 import React from 'react'
-import { View, Text, Image } from 'react-native'
+import { View, Image } from 'react-native'
+import Text from './Text'
 
 import Icon from 'react-native-vector-icons/FontAwesome5'
 import Colors from '../Colors'

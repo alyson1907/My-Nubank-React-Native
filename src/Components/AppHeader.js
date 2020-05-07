@@ -1,5 +1,6 @@
 import React from 'react'
-import { View, Image, Text } from 'react-native'
+import { View, Image } from 'react-native'
+import Text from './Text'
 // Images/Assets
 import logo from '../img/logo/Nubank_Logo.png'
 import Icon from 'react-native-vector-icons/MaterialIcons'
