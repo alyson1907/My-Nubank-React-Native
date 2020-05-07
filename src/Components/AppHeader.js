@@ -2,8 +2,9 @@ import React from 'react'
 import { View, Image, Text } from 'react-native'
 // Images/Assets
 import logo from '../img/logo/Nubank_Logo.png'
-import arrow from '../img/icons/nav_arrow.png'
+import Icon from 'react-native-vector-icons/MaterialIcons'
 import styles from './Styles/AppHeader'
+import Colors from '../Colors'
 
 const AppHeader = () => {
   return (
@@ -12,7 +13,7 @@ const AppHeader = () => {
         <Image source={logo} />
         <Text style={styles.textName}>Alyson</Text>
       </View>
-      <Image source={arrow} style={styles.imgArrow} />
+      <Icon name="keyboard-arrow-down" size={24} color={Colors.secondary} />
     </View>
   )
 }

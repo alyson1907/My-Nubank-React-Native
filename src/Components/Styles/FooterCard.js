@@ -12,19 +12,11 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between'
   },
 
-  contentImg: {
-    width: 22,
-    height: 22,
-    tintColor: Colors.secondary
-  },
-
   contentText: {
     color: Colors.fontPrimary,
     fontWeight: 'bold',
     fontSize: 16
   }
-
-
 })
 
 export default styles

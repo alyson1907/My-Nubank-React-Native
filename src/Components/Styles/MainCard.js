@@ -1,27 +1,26 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet, Dimensions } from 'react-native'
 import Colors from '../../Colors'
+
+const vw = Dimensions.get('window').width
+const vh = Dimensions.get('window').height
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    width: 0.8 * vw,
     backgroundColor: Colors.secondary,
-    borderRadius: 5
+    borderRadius: 5,
+    marginHorizontal: 24
   },
 
   headerContainer: {
     flexDirection: 'row',
+    alignItems: 'center',
     padding: 24
-  },
-
-  headerImg: {
-    width: 28,
-    height: 28,
-    tintColor: Colors.secondary
   },
 
   headerText: {
     color: Colors.fontSecondary,
-    fontSize: 18,
+    fontSize: 20,
     marginLeft: 28
   }
 })

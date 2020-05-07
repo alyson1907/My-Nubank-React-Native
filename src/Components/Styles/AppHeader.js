@@ -17,13 +17,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 22,
     marginHorizontal: 8
-  },
-
-  imgArrow: {
-    transform: [ { rotate: '90deg' } ],
-    width: 24,
-    height: 24, 
-    resizeMode: 'contain'
   }
 })
 

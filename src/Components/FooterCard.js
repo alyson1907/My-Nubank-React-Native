@@ -1,14 +1,18 @@
 import React from 'react'
-import { View, Text, Image } from 'react-native'
+import { Text, Image } from 'react-native'
+import { TouchableOpacity } from 'react-native-gesture-handler'
 
+import Icon from 'react-native-vector-icons/AntDesign'
+import Colors from '../Colors'
 import styles from './Styles/FooterCard'
 
 const FooterCard = (props) => {
   return (
-    <View style={styles.container}>
-      <Image source={props.img} style={styles.contentImg} />
+    // TODO add link to navigate to another screen
+    <TouchableOpacity style={styles.container}>
+      <Icon name={props.icon} size={22} color={Colors.secondary} />
       <Text style={styles.contentText}>{props.text}</Text>
-    </View>
+    </TouchableOpacity>
   )
 }
 
