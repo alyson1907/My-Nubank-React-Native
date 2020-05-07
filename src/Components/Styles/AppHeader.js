@@ -3,7 +3,7 @@ import Colors from '../../Colors'
 
 const styles = StyleSheet.create({
   container: {
-    paddingVertical: 22,
+    paddingTop: 48,
     alignItems: 'center'
   },
 
@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
   },
 
   textName: {
-    color: Colors.font,
+    color: Colors.fontPrimary,
     fontWeight: 'bold',
     fontSize: 22,
     marginHorizontal: 8
