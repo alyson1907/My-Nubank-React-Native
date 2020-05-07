@@ -24,12 +24,10 @@ const Home = () => {
       <View style={styles.content}>
       {/* TODO Change the ScrollView below to Carousel */}
         <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-          <MainCard headerIcon="coins" headerText="Conta" />
-          <MainCard headerIcon="coins" headerText="Conta" />
-          <MainCard headerIcon="coins" headerText="Conta" />
-          <MainCard headerIcon="coins" headerText="Conta" />
-          <MainCard headerIcon="coins" headerText="Conta" />
-          <MainCard headerIcon="coins" headerText="Conta" />
+          <MainCard headerIcon="coins" headerText="Conta" type='account' />
+          <MainCard headerIcon="coins" headerText="Conta" type='account' />
+          <MainCard headerIcon="coins" headerText="Conta" type='account' />
+          <MainCard headerIcon="coins" headerText="Conta" type='account' />
 
         </ScrollView>
       </View>

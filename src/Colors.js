@@ -3,7 +3,9 @@ const Colors = {
   primaryAlternative: '#ac14d9', // purple
   secondary: '#eee',
   fontPrimary: '#eee',
-  fontSecondary: '#555'
+  fontSecondary: '#555',
+  fontSecondaryAlternative: '#333',
+  brightGrey: '#dbdbdb'
 }
 
 module.exports = Colors 
