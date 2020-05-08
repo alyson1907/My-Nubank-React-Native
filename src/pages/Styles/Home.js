@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   rewardsTxt: {
-    fontSize: 16,
+    fontSize: 18,
     color: Colors.fontSecondary,
     textAlign: 'center',
     paddingHorizontal: 64,
@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
   },
   rewardsBtn: {
     height: 32,
-    padding: 18,
+    padding: 16,
     justifyContent: 'center',
     alignItems: 'center',
     borderStyle: 'solid',

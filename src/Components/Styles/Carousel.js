@@ -12,8 +12,8 @@ const styles = StyleSheet.create({
     height: 10,
     backgroundColor: Colors.primaryAlternative,
     borderRadius: 10,
-    marginHorizontal: 4,
-    marginTop: 4
+    marginHorizontal: 8,
+    marginTop: 8
   },
 
   selectedBullet: {
@@ -21,8 +21,8 @@ const styles = StyleSheet.create({
     height: 11,
     backgroundColor: Colors.secondary,
     borderRadius: 10,
-    marginHorizontal: 4,
-    marginTop: 4
+    marginHorizontal: 8,
+    marginTop: 8
   }
 })
 

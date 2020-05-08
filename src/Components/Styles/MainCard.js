@@ -3,7 +3,7 @@ import Colors from '../../Colors'
 
 const vw = Dimensions.get('window').width
 const width = 0.75 * vw
-const leftOffset = 24
+const leftOffset = 32
 
 const styles = StyleSheet.create({
   // Outer Container
@@ -25,8 +25,8 @@ const styles = StyleSheet.create({
 
   headerText: {
     color: Colors.fontSecondary,
-    fontSize: 18,
-    marginLeft: 28
+    fontSize: 16,
+    marginLeft: 32
   },
 
   footer: {
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
   footerTxt: {
     flex: 4,
     color: Colors.fontSecondaryAlternative,
-    paddingHorizontal: 24
+    paddingHorizontal: 32
   }
 })
 
