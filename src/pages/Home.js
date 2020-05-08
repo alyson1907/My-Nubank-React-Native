@@ -3,6 +3,7 @@ import { View } from "react-native"
 import { ScrollView } from 'react-native-gesture-handler'
 // Components
 import AppHeader from '../Components/AppHeader'
+import Carousel from '../Components/Carousel'
 import MainCard from '../Components/MainCard'
 import FooterCard from '../Components/FooterCard'
 import styles from './Styles/Home'
@@ -21,21 +22,18 @@ const Home = () => {
     <View style={styles.container}>
       <AppHeader />
       {/* Content in Center of HomeScreen */}
-      <View style={styles.content}>
-      {/* TODO Change the ScrollView below to Carousel */}
-        <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-          <MainCard headerIcon="coins" headerText="Conta" type='account' />
-          <MainCard headerIcon="coins" headerText="Conta" type='account' />
-          <MainCard headerIcon="coins" headerText="Conta" type='account' />
-          <MainCard headerIcon="coins" headerText="Conta" type='account' />
-
-        </ScrollView>
-      </View>
+      <Carousel style={styles.content} bullets>
+        {/* TODO Change the ScrollView below to Carousel */}
+        <MainCard headerIcon="coins" headerText="Conta" type='account' />
+        <MainCard headerIcon="coins" headerText="Conta" type='account' />
+        <MainCard headerIcon="coins" headerText="Conta" type='account' />
+        <MainCard headerIcon="coins" headerText="Conta" type='account' />
+      </Carousel>
       {/* Footer Menu */}
       <View style={styles.footer}>
         <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-          {footerCards.map(({ icon, text }) => (
-            <FooterCard icon={icon} text={text} />
+          {footerCards.map(({ icon, text }, idx) => (
+            <FooterCard key={idx} icon={icon} text={text} />
           ))}
         </ScrollView>
       </View>

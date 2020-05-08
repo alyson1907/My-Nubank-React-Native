@@ -12,8 +12,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     backgroundColor: Colors.secondary,
     borderRadius: 4,
-    marginHorizontal: 34,
-    paddingHorizontal: leftOffset
+    marginHorizontal: vw / 8,
+    paddingHorizontal: leftOffset,
   },
 
 // Header inside card
