@@ -4,7 +4,8 @@ import { ScrollView } from 'react-native-gesture-handler'
 import styles from './Styles/Carousel'
 
 const Carousel = (props) => {
-  const numberOfItems = props.children.length
+  const hasChildren = !!props.children
+  const numberOfItems = hasChildren && props.children.length || 0
   const [selectedBullet, setSelectedBullet] = useState(0)
 
   const handleBullet = e => {
@@ -25,7 +26,7 @@ const Carousel = (props) => {
   const getPageBullets = (numberOfItems, selectedBullet) => {
     return (
       <View style={styles.bulletsContainer}>
-        {props.children.map((child, idx) => {
+        {hasChildren && props.children.map((child, idx) => {
           return idx === selectedBullet ? (<View key={idx} style={styles.selectedBullet} />) : (<View key={idx} style={styles.bullet} />)
         })}
       </View>

@@ -5,6 +5,8 @@ const Colors = {
   fontPrimary: '#eee',
   fontSecondary: '#555',
   fontSecondaryAlternative: '#333',
+  fontColorfulPrimary: '#3398bd',
+  fontColorfulSecondary: '#79c73e',
   brightGrey: '#dbdbdb'
 }
 

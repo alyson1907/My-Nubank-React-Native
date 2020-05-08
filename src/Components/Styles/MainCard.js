@@ -29,21 +29,6 @@ const styles = StyleSheet.create({
     marginLeft: 28
   },
 
-  // Card content/body
-  content: {
-    paddingVertical: 18,
-  },
-
-  accountType: {
-    color: Colors.fontSecondary,
-    fontSize: 18
-  },
-
-  accountTypeLarge: {
-    color: Colors.fontSecondaryAlternative,
-    fontSize: 42
-  },
-
   footer: {
     flexDirection: 'row',
     alignItems: 'center',

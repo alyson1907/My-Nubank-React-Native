@@ -10,15 +10,15 @@ const styles = StyleSheet.create({
   bullet: {
     width: 10,
     height: 10,
-    backgroundColor: Colors.secondary,
+    backgroundColor: Colors.primaryAlternative,
     borderRadius: 10,
     marginHorizontal: 4,
     marginTop: 4
   },
 
   selectedBullet: {
-    width: 12,
-    height: 12,
+    width: 11,
+    height: 11,
     backgroundColor: Colors.secondary,
     borderRadius: 10,
     marginHorizontal: 4,
