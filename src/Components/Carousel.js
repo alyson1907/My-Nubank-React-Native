@@ -3,6 +3,20 @@ import { Animated, View, Text, ART, Dimensions } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
 import styles from './Styles/Carousel'
 
+export const getPageBullets = (numberOfItems, selectedBullet) => {
+  const dots = []
+  for (let idx=0; idx<numberOfItems; idx++) {
+    idx === selectedBullet
+    ? dots.push(<View key={idx} style={styles.selectedBullet} />)
+    : dots.push(<View key={idx} style={styles.bullet} />)
+  }
+  return (
+    <View style={styles.bulletsContainer}>
+      {dots}
+    </View>
+  )
+}
+
 const Carousel = (props) => {
   const hasChildren = !!props.children
   const numberOfItems = hasChildren && props.children.length || 0
@@ -22,16 +36,6 @@ const Carousel = (props) => {
     const currentBullet = getItemIndex(e)
     // TODO add Animation to bullet change
     setSelectedBullet(currentBullet)
-  }
-
-  const getPageBullets = (numberOfItems, selectedBullet) => {
-    return (
-      <View style={styles.bulletsContainer}>
-        {hasChildren && props.children.map((child, idx) => {
-          return idx === selectedBullet ? (<View key={idx} style={styles.selectedBullet} />) : (<View key={idx} style={styles.bullet} />)
-        })}
-      </View>
-    )
   }
 
   return (

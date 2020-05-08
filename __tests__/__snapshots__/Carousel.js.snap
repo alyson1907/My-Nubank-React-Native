@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders carousel bullets with 3 items correctly 1`] = `
+<View
+  style={
+    Object {
+      "flexDirection": "row",
+      "justifyContent": "center",
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#ac14d9",
+        "borderRadius": 10,
+        "height": 10,
+        "marginHorizontal": 8,
+        "marginTop": 8,
+        "width": 10,
+      }
+    }
+  />
+  <View
+    style={
+      Object {
+        "backgroundColor": "#eee",
+        "borderRadius": 10,
+        "height": 11,
+        "marginHorizontal": 8,
+        "marginTop": 8,
+        "width": 11,
+      }
+    }
+  />
+  <View
+    style={
+      Object {
+        "backgroundColor": "#ac14d9",
+        "borderRadius": 10,
+        "height": 10,
+        "marginHorizontal": 8,
+        "marginTop": 8,
+        "width": 10,
+      }
+    }
+  />
+</View>
+`;
+
+exports[`renders correctly 1`] = `
+<View>
+  <RCTScrollView
+    collapsable={false}
+    contentContainerStyle={
+      Object {
+        "justifyContent": "space-around",
+        "width": "0%",
+      }
+    }
+    decelerationRate="normal"
+    horizontal={true}
+    onGestureHandlerEvent={[Function]}
+    onGestureHandlerStateChange={[Function]}
+    onScroll={[Function]}
+    pagingEnabled={true}
+    showsHorizontalScrollIndicator={false}
+  >
+    <View />
+  </RCTScrollView>
+</View>
+`;

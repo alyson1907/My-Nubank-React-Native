@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "paddingTop": 32,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+        "justifyContent": "center",
+      }
+    }
+  >
+    <Image
+      source={
+        Object {
+          "testUri": "../../../src/img/logo/Nubank_Logo.png",
+        }
+      }
+    />
+    <Text
+      style={
+        Array [
+          Object {
+            "fontFamily": "sans-serif-medium",
+          },
+          Object {
+            "color": "#eee",
+            "fontSize": 24,
+            "fontWeight": "bold",
+            "marginHorizontal": 8,
+          },
+        ]
+      }
+    >
+      Alyson
+    </Text>
+  </View>
+  <Icon
+    color="#eee"
+    name="keyboard-arrow-down"
+    size={24}
+  />
+</View>
+`;
