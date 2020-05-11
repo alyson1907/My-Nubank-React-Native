@@ -3,7 +3,7 @@ import Colors from '../../Colors'
 
 const styles = StyleSheet.create({
   container: {
-    marginBottom: 32
+    maxHeight: 0
   }
 })
 

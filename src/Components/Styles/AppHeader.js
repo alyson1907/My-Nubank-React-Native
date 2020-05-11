@@ -3,7 +3,7 @@ import Colors from '../../Colors'
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 32,
+    paddingBottom: 32,
     alignItems: 'center'
   },
 

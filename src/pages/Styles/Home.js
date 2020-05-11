@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: Colors.primary,
-    justifyContent: 'space-between'
+    justifyContent: 'center'
   },
 
   content: {
@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
   },
 
   footer: {
-    marginBottom: 32,
+    marginTop: 32
   },
 
   /* MainCards Content Styles */

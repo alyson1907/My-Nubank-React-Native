@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Animated } from "react-native"
 import Text from '../Components/Text'
-import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler'
+import { ScrollView, TouchableOpacity, PanGestureHandler, State } from 'react-native-gesture-handler'
 // Components
 import AppHeader from '../Components/AppHeader'
 import Carousel from '../Components/Carousel'
@@ -9,6 +9,7 @@ import Menu from '../Components/Menu'
 import MainCard from '../Components/MainCard'
 import FooterCard from '../Components/FooterCard'
 import styles from './Styles/Home'
+
 
 const Home = () => {
   const mainCards = [
@@ -75,12 +76,27 @@ const Home = () => {
     { icon: 'adduser', text: 'Indicar Amigo3' },
   ]
 
+  // Slide down carousel animation (to show up Menu)
+  const translateY = new Animated.Value(0)
+  const animatedEvent = Animated.event([
+    {
+      nativeEvent: {
+        translationY: translateY
+      }
+    },
+    { useNativeDriver: true }
+  ])
+  const onHandlerStateChange = e => {
+
+  }
+
   return (
     <View style={styles.container}>
       <AppHeader />
       <Menu />
 
       {/* Content in Center of HomeScreen */}
+
       <Carousel style={styles.content} bullets>
         {mainCards.map(card => {
           return (
