@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { View, Animated } from "react-native"
 import Text from '../Components/Text'
 import { ScrollView, TouchableOpacity, PanGestureHandler, State } from 'react-native-gesture-handler'
@@ -12,6 +12,9 @@ import styles from './Styles/Home'
 
 
 const Home = () => {
+  const maxTranslation = 256
+  let lastPosition = 0
+
   const mainCards = [
     {
       header: {
@@ -76,6 +79,7 @@ const Home = () => {
     { icon: 'adduser', text: 'Indicar Amigo3' },
   ]
 
+  // Animation and Animation Handlers
   const translateY = new Animated.Value(0)
   const animatedEvent = Animated.event([
     {
@@ -83,17 +87,59 @@ const Home = () => {
         translationY: translateY
       }
     }
-  ],
-    { useNativeDriver: true })
+  ])
 
+  /* This handler us called whenever:
+    - User STARTS sliding the container
+    - User IS sliding the container
+    - User STOPS sliding the container */
   const onHandlerStateChange = e => {
-    
+    console.log(`ini lastPosition`, lastPosition)
+    console.log(`ini translateY`, translateY._value)
+
+    const isMenuOpen = (translationY) => translationY > 100 // Threshold pixels
+    const openMenu = () => {
+      translateY.setValue(lastPosition)
+      Animated.timing(translateY, {
+        toValue: maxTranslation,
+        duration: 300
+      })
+        // The callback inside `start()` is called after the animation is done
+        .start(() => {
+          lastPosition = maxTranslation
+          translateY.setValue(maxTranslation)
+          translateY.setOffset(maxTranslation)
+        })
+    }
+    const closeMenu = () => {
+      translateY.setValue(lastPosition)
+      Animated.timing(translateY, {
+        toValue: 0,
+        duration: 300
+      })
+        // The callback inside `start()` is called after the animation is done
+        .start(() => {
+          translateY.setValue(0)
+          translateY.setOffset(0)
+          lastPosition = 0
+        })
+    }
+
+    // When the user stopped doing the animation, it means the PAST/OLD state was ACTIVE (not the current one)
+    if (e.nativeEvent.oldState === State.ACTIVE) {
+      const { translationY } = e.nativeEvent
+      lastPosition += translationY
+      isMenuOpen(translationY) ? openMenu() : closeMenu()
+    }
   }
 
   const interpolatedTranslationY = (translateY) => {
+    // `Animated.Value` objects has the interpolate() function
     return translateY.interpolate({
-      inputRange: [-100, 0, 256],
-      outputRange: [-50, 0, 256],
+      inputRange: [-100, 0, maxTranslation],
+      outputRange: [-50, 0, maxTranslation],
+      /* extrapolate: used to "truncate" the input.
+      Does not let the user to translate the container to a value higher than the inputRange */
       extrapolate: 'clamp'
     })
   }
