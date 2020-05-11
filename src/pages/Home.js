@@ -1,5 +1,5 @@
 import React from 'react'
-import { View } from "react-native"
+import { View, Animated } from "react-native"
 import Text from '../Components/Text'
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler'
 // Components
