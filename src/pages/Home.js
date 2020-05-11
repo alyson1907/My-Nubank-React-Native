@@ -87,7 +87,7 @@ const Home = () => {
     { useNativeDriver: true })
 
   const onHandlerStateChange = e => {
-    console.log(e.nativeEvent)
+    
   }
 
   const interpolatedTranslationY = (translateY) => {
@@ -97,6 +97,14 @@ const Home = () => {
       extrapolate: 'clamp'
     })
   }
+
+  const interpolatedOpacity = translateY => {
+    return translateY.interpolate({
+      inputRange: [0, 128],
+      outputRange: [1, 0]
+    })
+  }
+
   return (
     <View style={styles.container}>
       <AppHeader />
@@ -125,13 +133,13 @@ const Home = () => {
       </PanGestureHandler>
 
       {/* Footer Menu */}
-      <View style={styles.footer}>
+      <Animated.View style={[styles.footer, { opacity: interpolatedOpacity(translateY) }]}>
         <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
           {footerCards.map(({ icon, text }) => (
             <FooterCard key={text} icon={icon} text={text} />
           ))}
         </ScrollView>
-      </View>
+      </Animated.View>
     </View>
   )
 }
