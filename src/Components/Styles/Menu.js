@@ -1,11 +1,11 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet, Dimensions } from 'react-native'
 import Colors from '../../Colors'
 
 const styles = StyleSheet.create({
   container: {
-    marginBottom: 32,
+    width: '100%',
     position: 'absolute',
-    zIndex: -1,
+    zIndex: -1
   }
 })
 

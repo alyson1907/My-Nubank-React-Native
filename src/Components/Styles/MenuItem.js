@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
 
   item: {
     borderBottomWidth: StyleSheet.hairlineWidth,
-    marginHorizontal: '12.5%',
+    marginHorizontal: '15%',
     borderColor: Colors.fontPrimary
 
   },

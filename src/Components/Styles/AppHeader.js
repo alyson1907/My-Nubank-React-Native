@@ -3,7 +3,8 @@ import Colors from '../../Colors'
 
 const styles = StyleSheet.create({
   container: {
-    alignItems: 'center'
+    alignItems: 'center',
+    marginTop: '2%'
   },
 
   innerView: {

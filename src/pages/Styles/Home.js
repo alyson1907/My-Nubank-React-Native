@@ -4,17 +4,17 @@ import Colors from '../../Colors'
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: Colors.primary,
-    justifyContent: 'center'
+    backgroundColor: Colors.primary
   },
 
   content: {
-    height: '45%',
+    height: '75%',
     width: '100%'
   },
 
   footer: {
-    marginTop: 32
+    // TODO remover gambiarra
+    bottom: '15%'
   },
 
   /* MainCards Content Styles */

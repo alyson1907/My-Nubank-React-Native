@@ -76,21 +76,53 @@ const Home = () => {
     { icon: 'adduser', text: 'Indicar Amigo3' },
   ]
 
+  const translateY = new Animated.Value(0)
+  const animatedEvent = Animated.event([
+    {
+      nativeEvent: {
+        translationY: translateY
+      }
+    }
+  ],
+    { useNativeDriver: true })
+
+  const onHandlerStateChange = e => {
+    console.log(e.nativeEvent)
+  }
+
+  const interpolatedTranslationY = (translateY) => {
+    return translateY.interpolate({
+      inputRange: [0, 380],
+      outputRange: [0, 380],
+      extrapolate: 'clamp'
+    })
+  }
   return (
     <View style={styles.container}>
       <AppHeader />
       <Menu />
 
       {/* Content in Center of HomeScreen */}
-      <Carousel style={styles.content} bullets>
-        {mainCards.map(card => {
-          return (
-            <MainCard header={card.header} footer={card.footer}>
-              {card.content()}
-            </MainCard>
-          )
-        })}
-      </Carousel>
+      <PanGestureHandler
+        onGestureEvent={animatedEvent}
+        onHandlerStateChange={onHandlerStateChange}
+      >
+        <Animated.View style={{
+          transform: [{
+            translateY: interpolatedTranslationY(translateY)
+          }]
+        }}>
+          <Carousel style={styles.content} bullets>
+            {mainCards.map((card, idx) => {
+              return (
+                <MainCard key={idx} header={card.header} footer={card.footer}>
+                  {card.content()}
+                </MainCard>
+              )
+            })}
+          </Carousel>
+        </Animated.View>
+      </PanGestureHandler>
 
       {/* Footer Menu */}
       <View style={styles.footer}>
