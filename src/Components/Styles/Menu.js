@@ -3,7 +3,9 @@ import Colors from '../../Colors'
 
 const styles = StyleSheet.create({
   container: {
-    marginBottom: 32
+    marginBottom: 32,
+    position: 'absolute',
+    zIndex: -1,
   }
 })
 

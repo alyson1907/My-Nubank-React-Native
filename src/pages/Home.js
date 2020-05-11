@@ -76,27 +76,12 @@ const Home = () => {
     { icon: 'adduser', text: 'Indicar Amigo3' },
   ]
 
-  // Slide down carousel animation (to show up Menu)
-  const translateY = new Animated.Value(0)
-  const animatedEvent = Animated.event([
-    {
-      nativeEvent: {
-        translationY: translateY
-      }
-    },
-    { useNativeDriver: true }
-  ])
-  const onHandlerStateChange = e => {
-
-  }
-
   return (
     <View style={styles.container}>
       <AppHeader />
       <Menu />
 
       {/* Content in Center of HomeScreen */}
-
       <Carousel style={styles.content} bullets>
         {mainCards.map(card => {
           return (
