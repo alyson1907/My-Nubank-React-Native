@@ -5,6 +5,7 @@ import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler'
 // Components
 import AppHeader from '../Components/AppHeader'
 import Carousel from '../Components/Carousel'
+import Menu from '../Components/Menu'
 import MainCard from '../Components/MainCard'
 import FooterCard from '../Components/FooterCard'
 import styles from './Styles/Home'
@@ -77,6 +78,7 @@ const Home = () => {
   return (
     <View style={styles.container}>
       <AppHeader />
+      <Menu />
 
       {/* Content in Center of HomeScreen */}
       <Carousel style={styles.content} bullets>
