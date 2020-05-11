@@ -1,18 +1,15 @@
 import { StyleSheet, Dimensions } from 'react-native'
 import Colors from '../../Colors'
 
-const vw = Dimensions.get('window').width
-const width = 0.75 * vw
 const leftOffset = 32
 
 const styles = StyleSheet.create({
   // Outer Container
   container: {
-    width,
+    width: '25%',
     justifyContent: 'space-between',
     backgroundColor: Colors.secondary,
     borderRadius: 4,
-    marginHorizontal: vw / 8,
     paddingHorizontal: leftOffset,
   },
 
@@ -32,10 +29,10 @@ const styles = StyleSheet.create({
   footer: {
     flexDirection: 'row',
     alignItems: 'center',
-    width,
     height: 84,
     borderRadius: 4,
     marginLeft: -leftOffset,
+    marginRight: -leftOffset,
     paddingHorizontal: leftOffset,
     backgroundColor: Colors.brightGrey,
   },
