@@ -92,15 +92,15 @@ const Home = () => {
 
   const interpolatedTranslationY = (translateY) => {
     return translateY.interpolate({
-      inputRange: [0, 380],
-      outputRange: [0, 380],
+      inputRange: [-100, 0, 256],
+      outputRange: [-50, 0, 256],
       extrapolate: 'clamp'
     })
   }
   return (
     <View style={styles.container}>
       <AppHeader />
-      <Menu />
+      <Menu translateY={translateY} />
 
       {/* Content in Center of HomeScreen */}
       <PanGestureHandler
