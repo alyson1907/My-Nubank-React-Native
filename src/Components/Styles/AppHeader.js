@@ -4,12 +4,12 @@ import Colors from '../../Colors'
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
-    marginTop: '2%'
+    marginTop: 16
   },
 
   innerView: {
     flexDirection: 'row',
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
 
   textName: {
