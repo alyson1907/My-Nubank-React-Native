@@ -11,7 +11,7 @@ import FooterCard from '../Components/FooterCard'
 import styles from './Styles/Home'
 
 
-const Home = () => {
+const Home = (props) => {
   const maxTranslation = 256
   let lastPosition = 0
 
@@ -74,7 +74,7 @@ const Home = () => {
     { icon: 'creditcard', text: 'Cartão de Crédito' },
     { icon: 'adduser', text: 'Indicar Amigo' },
     { icon: 'arrowup', text: 'Depositar' },
-    { icon: 'barcode', text: 'Pagar' },
+    { icon: 'barcode', text: 'Pagar', navigateTo: 'Payment' },
     { icon: 'adduser', text: 'Indicar Amigo2' },
     { icon: 'adduser', text: 'Indicar Amigo3' },
   ]
@@ -151,7 +151,7 @@ const Home = () => {
   return (
     <View style={styles.container}>
       <AppHeader />
-      <Menu translateY={translateY} />
+      <Menu translateY={translateY} navigation={props.navigation} />
 
       {/* Content in Center of HomeScreen */}
       <PanGestureHandler
@@ -178,8 +178,8 @@ const Home = () => {
       {/* Footer Menu */}
       <Animated.View style={[styles.footer, { opacity: interpolatedOpacity(translateY) }]}>
         <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-          {footerCards.map(({ icon, text }) => (
-            <FooterCard key={text} icon={icon} text={text} />
+          {footerCards.map(({ icon, text, navigateTo }) => (
+            <FooterCard key={text} icon={icon} text={text} navigateTo={navigateTo} />
           ))}
         </ScrollView>
       </Animated.View>
