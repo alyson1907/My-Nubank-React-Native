@@ -1,15 +1,18 @@
 import React from 'react'
 import { View } from 'react-native'
+import { TouchableOpacity } from 'react-native-gesture-handler'
 import Text from '../Components/Text'
-
+// Styles
+import Colors from '../Colors'
 import styles from './Styles/Payment'
+// Components
+import ExitCross from '../Components/ExitCross'
 
 const Payment = () => {
   return (
-    <View>
-      <View style={styles.container}>
-        <Text>SAODASDASDASD</Text>
-      </View>
+    <View style={styles.container}>
+      <ExitCross />
+      <Text>SAODASDASDASD</Text>
     </View>
   )
 }

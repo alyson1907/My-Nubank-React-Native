@@ -5,10 +5,13 @@ const styles = StyleSheet.create({
   container: {
     height: '96%',
     top: '10%',
-    borderTopLeftRadius: 40,
+    borderTopLeftRadius: 16,
+    borderTopRightRadius: 16,
     padding: 32,
     backgroundColor: Colors.backgroundPrimary
-  }
+  },
+
+  
 })
 
 export default styles
