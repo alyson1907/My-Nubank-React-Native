@@ -12,7 +12,8 @@ const styles = StyleSheet.create({
   },
 
   txtContainer: {
-    paddingHorizontal: 18
+    width: '75%',
+    paddingHorizontal: 32
   },
 
   title: {

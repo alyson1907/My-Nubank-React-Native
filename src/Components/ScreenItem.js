@@ -6,6 +6,12 @@ import Icon from 'react-native-vector-icons/AntDesign'
 import Colors from '../Colors'
 import styles from './Styles/ScreenItem'
 
+/**
+ * @param {String} title
+ * @param {String} icon AntDesign vector-icon
+ * @param {String} text
+ * @param {String} navigateTo Page name
+ */
 const ScreenItem = (props) => {
   const navigation = useNavigation()
   const navigateTo = pageName => pageName && navigation.navigate(pageName)
