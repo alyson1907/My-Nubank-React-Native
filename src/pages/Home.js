@@ -94,9 +94,6 @@ const Home = () => {
     - User IS sliding the container
     - User STOPS sliding the container */
   const onHandlerStateChange = e => {
-    console.log(`ini lastPosition`, lastPosition)
-    console.log(`ini translateY`, translateY._value)
-
     const isMenuOpen = (translationY) => translationY > 100 // Threshold pixels
     const openMenu = () => {
       translateY.setValue(lastPosition)
