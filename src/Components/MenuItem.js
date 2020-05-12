@@ -8,6 +8,11 @@ import { useNavigation } from '@react-navigation/native'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import styles from './Styles/MenuItem'
 
+/** single item for Slide-Down menu
+ * @param {String} icon MaterialIcons icon name
+ * @param {String} text
+ * @param {String} navigateTo Page name
+ */
 const MenuItem = (props) => {
   const navigation = useNavigation()
   const navigateTo = pageName => pageName && navigation.navigate(pageName)

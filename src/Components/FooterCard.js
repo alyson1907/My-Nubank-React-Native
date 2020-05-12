@@ -8,6 +8,11 @@ import Icon from 'react-native-vector-icons/AntDesign'
 import Colors from '../Colors'
 import styles from './Styles/FooterCard'
 
+/** Single footer button
+ * @param {String} icon AntDesign icon name
+ * @param {String} text
+ * @param {String} navigateTo Page name
+ */
 const FooterCard = (props) => {
   const navigation = useNavigation()
   const navigateTo = pageName => pageName && navigation.navigate(pageName)
