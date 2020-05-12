@@ -7,6 +7,8 @@ const Stack = createStackNavigator()
 import Home from './pages/Home'
 import Payment from './pages/Payment'
 import Deposit from './pages/Deposit'
+import BoletoDeposit from './pages/BoletoDeposit'
+
 import { Dimensions } from 'react-native'
 
 const Routes = () => {
@@ -45,6 +47,7 @@ const Routes = () => {
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Payment" component={Payment} />
         <Stack.Screen name="Deposit" component={Deposit} />
+        <Stack.Screen name="BoletoDeposit" component={BoletoDeposit} />
       </Stack.Navigator>
     </NavigationContainer>
   )
