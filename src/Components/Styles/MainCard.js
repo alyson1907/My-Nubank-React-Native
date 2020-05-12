@@ -29,11 +29,11 @@ const styles = StyleSheet.create({
   footer: {
     flexDirection: 'row',
     alignItems: 'center',
-    height: 84,
     borderRadius: 4,
     marginLeft: -leftOffset,
     marginRight: -leftOffset,
     paddingHorizontal: leftOffset,
+    paddingVertical: 32,
     backgroundColor: Colors.brightGrey,
   },
 
