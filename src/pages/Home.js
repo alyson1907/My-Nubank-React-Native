@@ -72,9 +72,9 @@ const Home = (props) => {
 
   const footerCards = [
     { icon: 'creditcard', text: 'Cartão de Crédito' },
-    { icon: 'adduser', text: 'Indicar Amigo' },
-    { icon: 'arrowup', text: 'Depositar' },
+    { icon: 'sync', text: 'Depositar', navigateTo: 'Deposit' },
     { icon: 'barcode', text: 'Pagar', navigateTo: 'Payment' },
+    { icon: 'adduser', text: 'Indicar Amigo' },
     { icon: 'adduser', text: 'Indicar Amigo2' },
     { icon: 'adduser', text: 'Indicar Amigo3' },
   ]
