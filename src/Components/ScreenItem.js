@@ -29,7 +29,7 @@ const ScreenItem = (props) => {
         {renderDescription(props.description)}
       </View>
 
-      {renderIcon('arrowright', 16)}
+      {renderIcon('right', 16)}
     </View>
   )
 }
