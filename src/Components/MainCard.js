@@ -7,14 +7,14 @@ import Colors from '../Colors'
 import styles from './Styles/MainCard'
 
 const MainCard = (props) => {
-  const header = props => (
+  const renderHeader = props => (
     <View style={styles.headerContainer}>
       {props.header && props.header.icon && (<Icon name={props.header.icon} size={28} color={Colors.fontSecondary} />)}
       <Text style={styles.headerText}>{props.header.text}</Text>
     </View>
   )
 
-  const footer = props => {
+  const renderFooter = props => {
     if (props.footer) {
       return (
         <View style={styles.footer}>
@@ -29,13 +29,13 @@ const MainCard = (props) => {
   return (
     <View style={styles.container}>
       {/* Card Header */}
-      {header(props)}
+      {renderHeader(props)}
 
       {/* Card Content */}
       {props.children}
 
       {/* Card Footer */}
-      {footer(props)}
+      {renderFooter(props)}
     </View>
   )
 }
