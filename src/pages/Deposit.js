@@ -3,7 +3,7 @@ import { View } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import Text from '../Components/Text'
 // Styles
-import styles from './Styles/Payment'
+import styles from './Styles/SecondaryPage'
 // Components
 import ExitCross from '../Components/ExitCross'
 import ScreenItem from '../Components/ScreenItem'
@@ -14,7 +14,7 @@ const Deposit = () => {
       icon: 'barcode',
       title: 'Gerar um boleto de depósito',
       description: 'Pague onde preferir e receba o dinheiro na sua conta em até 3 dias úteis.',
-      navigateTo: 'Home'
+      navigateTo: 'BoletoDeposit'
     },
     {
       icon: 'export',
