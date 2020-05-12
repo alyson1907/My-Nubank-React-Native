@@ -18,11 +18,13 @@ const styles = StyleSheet.create({
 
   title: {
     fontWeight: 'bold',
-    fontSize: 18
+    fontSize: 18,
+    textAlign: 'justify'
   },
 
   description: {
-    fontSize: 18
+    fontSize: 18,
+    textAlign: 'justify'
   }
 })
 
