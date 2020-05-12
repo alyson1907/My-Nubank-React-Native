@@ -6,6 +6,7 @@ const Stack = createStackNavigator()
 // Pages
 import Home from './pages/Home'
 import Payment from './pages/Payment'
+import Deposit from './pages/Deposit'
 import { Dimensions } from 'react-native'
 
 const Routes = () => {
@@ -36,13 +37,14 @@ const Routes = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{
-        cardStyle: { backgroundColor: 'transparent' },
         headerShown: false,
+        cardStyle: { backgroundColor: 'transparent' },
         cardStyleInterpolator: transitionAnimation
         // cardOverlayEnabled: true,
       }} initialRouteName="Home">
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Payment" component={Payment} />
+        <Stack.Screen name="Deposit" component={Deposit} />
       </Stack.Navigator>
     </NavigationContainer>
   )
