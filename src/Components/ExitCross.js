@@ -6,7 +6,7 @@ import Colors from '../Colors'
 
 export default (props) => {
   const navigation = useNavigation()
-  const returnScreen = () => navigation.goBack()
+  const returnScreen = () => navigation.canGoBack() && navigation.goBack()
 
   return (
     <TouchableOpacity onPress={returnScreen}>

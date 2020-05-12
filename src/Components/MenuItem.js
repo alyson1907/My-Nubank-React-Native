@@ -10,7 +10,7 @@ import styles from './Styles/MenuItem'
 
 const MenuItem = (props) => {
   const navigation = useNavigation()
-  const navigateTo = pageName => props.navigateTo && navigation.navigate(pageName)
+  const navigateTo = pageName => pageName && navigation.navigate(pageName)
 
   return (
     <View style={styles.item}>

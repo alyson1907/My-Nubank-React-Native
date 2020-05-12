@@ -10,7 +10,7 @@ import styles from './Styles/FooterCard'
 
 const FooterCard = (props) => {
   const navigation = useNavigation()
-  const navigateTo = pageName => props.navigateTo && navigation.navigate(pageName)
+  const navigateTo = pageName => pageName && navigation.navigate(pageName)
 
   return (
     // TODO add link to navigate to another screen
