@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { View } from 'react-native'
 import Text from '../Components/Text'
 import ExitCross from '../Components/ExitCross'
@@ -10,11 +10,24 @@ import actions from '../redux/actions'
 import { connect } from 'react-redux'
 
 const TransactionHistory = (props) => {
+  const [isLoading, setLoading] = useState(true)
+
   useEffect(() => {
-    props.fetchTransactions()
-  })
+   const loadTransactions = async () => {
+     await props.fetchTransactions()
+   }
+   loadTransactions().then(() => setLoading(false))
+
+  },[isLoading])
 
   const renderSummary = () => {
+   if (!isLoading) {
+
+   } else {
+     return (
+       <Text>Loading...</Text>
+     )
+   }
 
   }
 
@@ -22,6 +35,7 @@ const TransactionHistory = (props) => {
     <View style={defaultStyle.container}>
       <ExitCross />
       <View style={styles.container}>
+        {renderSummary()}
       </View>
     </View>
   )
@@ -35,7 +49,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchTransactions: () => dispatch(actions.transactions.fetchTransactions)
+    fetchTransactions: () => dispatch(actions.transactions.fetchTransactions())
   }
 }
 

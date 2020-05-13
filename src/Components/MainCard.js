@@ -31,7 +31,7 @@ const MainCard = (props) => {
   }
 
   return (
-    <View style={styles.container} onTouchStart={() => {navigateTo(props.navigateTo)}}>
+    <View style={styles.container} onTouchEnd={() => {navigateTo(props.navigateTo)}}>
       {/* Card Header */}
       {header(props)}
 

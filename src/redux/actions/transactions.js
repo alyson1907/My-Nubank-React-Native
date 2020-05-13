@@ -1,12 +1,18 @@
-const actionCreator = {
-  insertTransaction: transaction => ({
-    type: 'INSERT_TRANSACTION',
-    transaction
-  }),
+import { uri } from '../../config'
 
-  fetchTransactions: () => ({
-    type: 'GET_TRANSACTIONS'
-  })
+const actionCreator = {
+  fetchTransactions: () => {
+    return (dispatch) => {
+      fetch(`${uri}/transactions`)
+        .then(response => response.json())
+        .then(json => dispatch({
+          type: 'GET_TRANSACTIONS',
+          transactions: json
+        }))
+        .catch(err => console.error('Error when fetching Transactions'))
+    }
+
+  }
 }
 
 export default actionCreator
