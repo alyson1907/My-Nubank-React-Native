@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text } from 'react-native';
+import Text from './Components/Text';
 
 export const getTotalValue = transactions => {
   const total = transactions.reduce((acc, trans) => acc += trans.value, 0)
@@ -9,4 +9,4 @@ export const getTotalValue = transactions => {
   }
 }
 
-export const renderLoading = () => (<Progress.Bar progress={0.4} size={50} />)
+export const renderLoading = () => (<Text style={{fontSize: 18}}>Loading...</Text>)

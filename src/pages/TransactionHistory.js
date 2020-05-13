@@ -21,7 +21,7 @@ const TransactionHistory = (props) => {
     const loadTransactions = async () => {
       await props.fetchTransactions()
     }
-    loadTransactions().then(() => setTimeout(() => setLoading(false), 1000))
+    loadTransactions().then(() => setLoading(false))
   }, [])
   
   const renderSummary = (transactions) => {
