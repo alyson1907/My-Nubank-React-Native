@@ -65,7 +65,7 @@ const TransactionHistory = (props) => {
 
 const mapStateToProps = state => {
   return {
-    transactions: state.trans
+    transactions: state.trans.transactionList
   }
 }
 

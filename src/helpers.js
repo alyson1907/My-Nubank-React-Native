@@ -2,6 +2,7 @@ import React from 'react'
 import Text from './Components/Text';
 
 export const getTotalValue = transactions => {
+  if (!transactions) return { integer: 0, cents: '00' }
   const total = transactions.reduce((acc, trans) => acc += trans.value, 0)
   return {
     integer: parseInt(total / 100),

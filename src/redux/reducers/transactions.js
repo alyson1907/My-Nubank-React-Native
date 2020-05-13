@@ -1,12 +1,17 @@
 
-const initialState = []
+const initialState = {
+  transactionList: []
+}
 
 const transactionsReducer = (state = initialState, action) => {
   if (!state) return initialState
 
   switch (action.type) {
-    case 'GET_TRANSACTIONS':
-      return action.transactions
+    case 'SET_TRANSACTIONS':
+      return {
+        ...state,
+        transactionList: action.transactions
+      }
 
     default: return state
   }
