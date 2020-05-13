@@ -9,8 +9,23 @@ import Menu from '../Components/Menu'
 import MainCard from '../Components/MainCard'
 import FooterCard from '../Components/FooterCard'
 import styles from './Styles/Home'
+// Redux
+import { connect } from 'react-redux'
+import actions from '../redux/actions'
+
+import { getTotalValue } from '../helpers';
 
 const Home = (props) => {
+  useEffect(() => {
+    const loadTransactions = async () => {
+      await props.fetchTransactions()
+    }
+    loadTransactions()
+  }, [])
+
+  // Redux (transactions)
+  const totalSpent = getTotalValue(props.transactions)
+  // Animations
   const maxTranslation = 256
   let lastPosition = 0
 
@@ -31,8 +46,8 @@ const Home = (props) => {
           <Text style={styles.creditCard}>FATURA ATUAL</Text>
           <Text style={styles.creditCardValue}>
             R$
-            <Text style={{ fontWeight: 'bold' }}>135</Text>
-            ,50
+      <Text style={{ fontWeight: 'bold' }}>{totalSpent.integer}</Text>
+            ,{totalSpent.cents}
           </Text>
           <Text style={styles.creditCardLimit}>Limite disponível <Text style={styles.creditCardLimitValue}>R$ 600,00</Text></Text>
         </View>
@@ -187,4 +202,16 @@ const Home = (props) => {
   )
 }
 
-export default Home
+const mapStateToProps = state => {
+  return {
+    transactions: state.trans
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchTransactions: () => dispatch(actions.transactions.fetchTransactions())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home)

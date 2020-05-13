@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import { View } from 'react-native'
+import { ScrollView } from 'react-native-gesture-handler'
+// Components
 import Text from '../Components/Text'
 import ExitCross from '../Components/ExitCross'
 import TransactionItem from '../Components/TransactionItem'
-
+// Style
 import defaultStyle from './Styles/SecondaryPage'
 import styles from './Styles/TransactionHistory'
-
+// Redux
 import actions from '../redux/actions'
 import { connect } from 'react-redux'
-import { ScrollView } from 'react-native-gesture-handler'
+
+import { getTotalValue } from '../helpers'
 
 const TransactionHistory = (props) => {
   const [isLoading, setLoading] = useState(true)
@@ -19,30 +22,20 @@ const TransactionHistory = (props) => {
       await props.fetchTransactions()
     }
     loadTransactions().then(() => setLoading(false))
-
   }, [isLoading])
 
   const renderSummary = (transactions) => {
-    const reduceTransactions = transactions => {
-      return transactions.reduce((acc, trans) => {
-        return {
-          count: acc.count + 1,
-          totalValue: acc.totalValue + parseInt(trans.value)
-        }
-      },
-        {
-          count: 0,
-          totalValue: 0
-        })
-    }
     const renderLoading = () => (<Text>Loading...</Text>)
     const renderTransactionSummary = ({ count, totalValue }) => (
       <View style={styles.summary}>
-        <Text style={styles.summaryTxt}>Você fez {count} compras nos últimos 30 dias, com um total de R$ {(totalValue/100).toFixed(2)}</Text>
+        <Text style={styles.summaryTxt}>Você fez {count} compras nos últimos 30 dias, com um total de R$ {totalValue.integer},{totalValue.cents}</Text>
       </View>
     )
 
-    const transactionsInfo = reduceTransactions(transactions)
+    const transactionsInfo = {
+      count: transactions.length,
+      totalValue: getTotalValue(props.transactions)
+    }
 
     return isLoading ? renderLoading() : renderTransactionSummary(transactionsInfo)
   }
