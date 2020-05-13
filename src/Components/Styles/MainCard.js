@@ -1,18 +1,15 @@
 import { StyleSheet, Dimensions } from 'react-native'
 import Colors from '../../Colors'
 
-const vw = Dimensions.get('window').width
-const width = 0.75 * vw
-const leftOffset = 24
+const leftOffset = 32
 
 const styles = StyleSheet.create({
   // Outer Container
   container: {
-    width,
+    width: '25%',
     justifyContent: 'space-between',
     backgroundColor: Colors.secondary,
     borderRadius: 4,
-    marginHorizontal: vw / 8,
     paddingHorizontal: leftOffset,
   },
 
@@ -25,40 +22,25 @@ const styles = StyleSheet.create({
 
   headerText: {
     color: Colors.fontSecondary,
-    fontSize: 18,
-    marginLeft: 28
-  },
-
-  // Card content/body
-  content: {
-    paddingVertical: 18,
-  },
-
-  accountType: {
-    color: Colors.fontSecondary,
-    fontSize: 18
-  },
-
-  accountTypeLarge: {
-    color: Colors.fontSecondaryAlternative,
-    fontSize: 42
+    fontSize: 16,
+    marginLeft: 32
   },
 
   footer: {
     flexDirection: 'row',
     alignItems: 'center',
-    width,
-    height: 84,
     borderRadius: 4,
     marginLeft: -leftOffset,
+    marginRight: -leftOffset,
     paddingHorizontal: leftOffset,
+    paddingVertical: 32,
     backgroundColor: Colors.brightGrey,
   },
 
   footerTxt: {
     flex: 4,
     color: Colors.fontSecondaryAlternative,
-    paddingHorizontal: 24
+    paddingHorizontal: 32
   }
 })
 
