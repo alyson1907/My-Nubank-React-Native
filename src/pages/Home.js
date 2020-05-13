@@ -13,9 +13,10 @@ import styles from './Styles/Home'
 import { connect } from 'react-redux'
 import actions from '../redux/actions'
 
-import { getTotalValue } from '../helpers';
+import { getTotalValue } from '../helpers'
 
 const Home = (props) => {
+
   useEffect(() => {
     const loadTransactions = async () => {
       await props.fetchTransactions()

@@ -12,7 +12,7 @@ import styles from './Styles/TransactionHistory'
 import actions from '../redux/actions'
 import { connect } from 'react-redux'
 
-import { getTotalValue } from '../helpers'
+import { getTotalValue, renderLoading } from '../helpers'
 
 const TransactionHistory = (props) => {
   const [isLoading, setLoading] = useState(true)
@@ -21,11 +21,10 @@ const TransactionHistory = (props) => {
     const loadTransactions = async () => {
       await props.fetchTransactions()
     }
-    loadTransactions().then(() => setLoading(false))
-  }, [isLoading])
-
+    loadTransactions().then(() => setTimeout(() => setLoading(false), 1000))
+  }, [])
+  
   const renderSummary = (transactions) => {
-    const renderLoading = () => (<Text>Loading...</Text>)
     const renderTransactionSummary = ({ count, totalValue }) => (
       <View style={styles.summary}>
         <Text style={styles.summaryTxt}>Você fez {count} compras nos últimos 30 dias, com um total de R$ {totalValue.integer},{totalValue.cents}</Text>
@@ -36,11 +35,11 @@ const TransactionHistory = (props) => {
       count: transactions.length,
       totalValue: getTotalValue(props.transactions)
     }
-
-    return isLoading ? renderLoading() : renderTransactionSummary(transactionsInfo)
+    return (isLoading || !props.transactions) ? renderLoading() : renderTransactionSummary(transactionsInfo)
   }
 
   const renderTransactions = transactions => {
+    if (isLoading || !props.transactions) return renderLoading()
     const orderedTrans = transactions.sort((a, b) => a.createdAt > b.createdAt ? 1 : -1)
     return (
       <ScrollView contentContainerStyle={{flexDirection: 'column-reverse'}} showsVerticalScrollIndicator={false}>
