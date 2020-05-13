@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Animated, View, Text, ART, Dimensions } from 'react-native'
+import { View, Text, Dimensions } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
 import styles from './Styles/Carousel'
 

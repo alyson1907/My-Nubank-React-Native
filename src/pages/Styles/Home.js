@@ -5,16 +5,17 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: Colors.primary,
-    justifyContent: 'space-between'
+    justifyContent: 'center'
   },
 
   content: {
-    height: '45%',
+    height: '75%',
     width: '100%'
   },
 
   footer: {
-    marginBottom: 32,
+    // TODO remover gambiarra
+    bottom: '15%'
   },
 
   /* MainCards Content Styles */

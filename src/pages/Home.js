@@ -1,15 +1,20 @@
-import React from 'react'
-import { View } from "react-native"
+import React, { useState } from 'react'
+import { View, Animated } from "react-native"
 import Text from '../Components/Text'
-import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler'
+import { ScrollView, TouchableOpacity, PanGestureHandler, State } from 'react-native-gesture-handler'
 // Components
 import AppHeader from '../Components/AppHeader'
 import Carousel from '../Components/Carousel'
+import Menu from '../Components/Menu'
 import MainCard from '../Components/MainCard'
 import FooterCard from '../Components/FooterCard'
 import styles from './Styles/Home'
 
+
 const Home = () => {
+  const maxTranslation = 256
+  let lastPosition = 0
+
   const mainCards = [
     {
       header: {
@@ -74,29 +79,110 @@ const Home = () => {
     { icon: 'adduser', text: 'Indicar Amigo3' },
   ]
 
+  // Animation and Animation Handlers
+  const translateY = new Animated.Value(0)
+  const animatedEvent = Animated.event([
+    {
+      nativeEvent: {
+        translationY: translateY
+      }
+    }
+  ])
+
+  /* This handler us called whenever:
+    - User STARTS sliding the container
+    - User IS sliding the container
+    - User STOPS sliding the container */
+  const onHandlerStateChange = e => {
+    const isMenuOpen = (translationY) => translationY > 100 // Threshold pixels
+    const openMenu = () => {
+      translateY.setValue(lastPosition)
+      Animated.timing(translateY, {
+        toValue: maxTranslation,
+        duration: 300
+      })
+        // The callback inside `start()` is called after the animation is done
+        .start(() => {
+          lastPosition = maxTranslation
+          translateY.setValue(maxTranslation)
+          translateY.setOffset(maxTranslation)
+        })
+    }
+    const closeMenu = () => {
+      translateY.setValue(lastPosition)
+      Animated.timing(translateY, {
+        toValue: 0,
+        duration: 300
+      })
+        // The callback inside `start()` is called after the animation is done
+        .start(() => {
+          translateY.setValue(0)
+          translateY.setOffset(0)
+          lastPosition = 0
+        })
+    }
+
+    // When the user stopped doing the animation, it means the PAST/OLD state was ACTIVE (not the current one)
+    if (e.nativeEvent.oldState === State.ACTIVE) {
+      const { translationY } = e.nativeEvent
+      lastPosition += translationY
+      isMenuOpen(translationY) ? openMenu() : closeMenu()
+    }
+  }
+
+  const interpolatedTranslationY = (translateY) => {
+    // `Animated.Value` objects has the interpolate() function
+    return translateY.interpolate({
+      inputRange: [-100, 0, maxTranslation],
+      outputRange: [-50, 0, maxTranslation],
+      /* extrapolate: used to "truncate" the input.
+      Does not let the user to translate the container to a value higher than the inputRange */
+      extrapolate: 'clamp'
+    })
+  }
+
+  const interpolatedOpacity = translateY => {
+    return translateY.interpolate({
+      inputRange: [0, 128],
+      outputRange: [1, 0]
+    })
+  }
+
   return (
     <View style={styles.container}>
       <AppHeader />
+      <Menu translateY={translateY} />
 
       {/* Content in Center of HomeScreen */}
-      <Carousel style={styles.content} bullets>
-        {mainCards.map(card => {
-          return (
-            <MainCard header={card.header} footer={card.footer}>
-              {card.content()}
-            </MainCard>
-          )
-        })}
-      </Carousel>
+      <PanGestureHandler
+        onGestureEvent={animatedEvent}
+        onHandlerStateChange={onHandlerStateChange}
+      >
+        <Animated.View style={{
+          transform: [{
+            translateY: interpolatedTranslationY(translateY)
+          }]
+        }}>
+          <Carousel style={styles.content} bullets>
+            {mainCards.map((card, idx) => {
+              return (
+                <MainCard key={idx} header={card.header} footer={card.footer}>
+                  {card.content()}
+                </MainCard>
+              )
+            })}
+          </Carousel>
+        </Animated.View>
+      </PanGestureHandler>
 
       {/* Footer Menu */}
-      <View style={styles.footer}>
+      <Animated.View style={[styles.footer, { opacity: interpolatedOpacity(translateY) }]}>
         <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
           {footerCards.map(({ icon, text }) => (
             <FooterCard key={text} icon={icon} text={text} />
           ))}
         </ScrollView>
-      </View>
+      </Animated.View>
     </View>
   )
 }

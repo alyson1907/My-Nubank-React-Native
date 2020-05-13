@@ -3,13 +3,13 @@ import Colors from '../../Colors'
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 32,
-    alignItems: 'center'
+    alignItems: 'center',
+    marginTop: 16
   },
 
   innerView: {
     flexDirection: 'row',
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
 
   textName: {
