@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { View, Animated } from "react-native"
 import Text from '../Components/Text'
 import { ScrollView, TouchableOpacity, PanGestureHandler, State } from 'react-native-gesture-handler'
@@ -9,7 +9,6 @@ import Menu from '../Components/Menu'
 import MainCard from '../Components/MainCard'
 import FooterCard from '../Components/FooterCard'
 import styles from './Styles/Home'
-
 
 const Home = (props) => {
   const maxTranslation = 256
@@ -37,7 +36,8 @@ const Home = (props) => {
           </Text>
           <Text style={styles.creditCardLimit}>Limite disponível <Text style={styles.creditCardLimitValue}>R$ 600,00</Text></Text>
         </View>
-      )
+      ),
+      navigateTo: 'TransactionHistory'
     },
     {
       header: {
@@ -166,7 +166,7 @@ const Home = (props) => {
           <Carousel style={styles.content} bullets>
             {mainCards.map((card, idx) => {
               return (
-                <MainCard key={idx} header={card.header} footer={card.footer}>
+                <MainCard key={idx} header={card.header} footer={card.footer} navigateTo={card.navigateTo}>
                   {card.content()}
                 </MainCard>
               )

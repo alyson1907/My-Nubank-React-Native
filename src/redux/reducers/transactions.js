@@ -1,12 +1,14 @@
 
+import { uri } from '../../config'
 const initialState = []
 
-const transactionsReducer = (state = initialState, action) => {
+const transactionsReducer = async (state = initialState, action) => {
   if (!state) return initialState
 
   switch (action.type) {
-    case 'INSERT_TRANSACTION':
-      return [...state, action.transaction]
+    case 'GET_TRANSACTIONS':
+      const fetchedTrans = await fetch(`${uri}/transactions`)
+      return fetchedTrans.json()
 
     default: return state
   }
