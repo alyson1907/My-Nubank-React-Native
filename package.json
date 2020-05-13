@@ -5,7 +5,8 @@
     "ios": "react-native run-ios",
     "web": "expo start --web",
     "start": "react-native start",
-    "test": "jest"
+    "test": "jest",
+    "test:coverage": "jest --coverage"
   },
   "dependencies": {
     "@react-native-community/masked-view": "^0.1.10",
@@ -33,7 +34,14 @@
     "typescript": "~3.8.3"
   },
   "jest": {
-    "preset": "react-native"
+    "preset": "react-native",
+    "transformIgnorePatterns": [
+      "node_modules/(?!((jest-)?react-native|react-navigation|@react-navigation/.*))"
+    ],
+    "setupFiles": [
+      "./src/setupTests.js",
+      "./node_modules/react-native-gesture-handler/jestSetup.js"
+    ]
   },
   "private": true
 }

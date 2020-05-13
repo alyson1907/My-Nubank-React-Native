@@ -1,16 +1,11 @@
-<<<<<<< HEAD
-import 'react-native';
-import React from 'react';
-import App from '../App';
-=======
 import 'react-native'
 import React from 'react'
-import App from '../App.js'
->>>>>>> feature/testsInit
+import AppHeader from '../src/Components/AppHeader.js'
 
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer'
 
 it('renders correctly', () => {
-  renderer.create(<App />)
+  const tree = renderer.create(<AppHeader />).toJSON()
+  expect(tree).toMatchSnapshot()
 })
