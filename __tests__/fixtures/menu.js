@@ -10,6 +10,17 @@ const menuTestSet = [
       }
     }
   },
+  {
+    input: {
+      event: {
+        nativeEvent: {
+          layout: {
+            height: 800
+          }
+        }
+      }
+    }
+  }
 ]
 
 module.exports = {

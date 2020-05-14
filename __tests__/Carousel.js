@@ -24,11 +24,11 @@ it('renders Carousel with proper children', () => {
 
 it('asserts correct processing of bullets handler', () => {
   handleBulletTestSet.forEach(test => {
-    const setSelectedBullet = jest.fn()
+    const setSelectedBulletMock = jest.fn()
     const { input: { event, width, numberOfItems } } = test
     const { expected: { currentBullet } } = test
-    handleBullet(event, width, numberOfItems, setSelectedBullet)
-    expect(setSelectedBullet).toHaveBeenCalledWith(parseInt(currentBullet))
+    handleBullet(event, width, numberOfItems, setSelectedBulletMock)
+    expect(setSelectedBulletMock).toHaveBeenCalledWith(parseInt(currentBullet))
   })
 })
 

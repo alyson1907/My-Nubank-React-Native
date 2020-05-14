@@ -9,7 +9,7 @@ const globals = {
   icon: 'creditcard'
 }
 
-describe('HomeScreen Footer List Tests', () => {
+describe('Footer Card Tests', () => {
   it('evaluates the rendered card with snapshot', () => {
     const tree = renderer.create(<FooterCard  icon={globals.icon} text={globals.text} />)
     expect(tree).toMatchSnapshot()
