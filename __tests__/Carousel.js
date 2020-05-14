@@ -1,8 +1,10 @@
 import 'react-native'
 import React from 'react'
 import { View, Text } from 'react-native'
-import Carousel, { getPageBullets } from '../src/Components/Carousel.js'
+import Carousel, { getPageBullets, handleBullet } from '../src/Components/Carousel.js'
 import { shallow, mount, render } from 'enzyme'
+
+import { handleBulletTestSet } from './fixtures/carousel'
 
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer'
@@ -21,10 +23,20 @@ it('renders Carousel with proper children', () => {
   ]
 
   // mount will create the component and execute its entire life cycle
-  const wrapper = mount( <Carousel> {carouselChildren} </Carousel>)
+  const wrapper = mount(<Carousel> {carouselChildren} </Carousel>)
 
   expect(wrapper.find("[data-test-id='first-child']").at(0).text()).toEqual('first child')
   expect(wrapper.find("[data-test-id='second-child']").at(1).text()).toEqual('second child')
+})
+
+it('asserts correct processing of bullets handler', () => {
+  handleBulletTestSet.forEach(test => {
+    const setSelectedBullet = jest.fn()
+    const { input: { event, width, numberOfItems } } = test
+    const { expected: { currentBullet } } = test
+    handleBullet(event, width, numberOfItems, setSelectedBullet)
+    expect(setSelectedBullet).toHaveBeenCalledWith(parseInt(currentBullet))
+  })
 })
 
 it('renders carousel bullets with 3 items correctly', () => {
