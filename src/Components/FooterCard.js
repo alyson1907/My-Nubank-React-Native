@@ -10,9 +10,9 @@ import styles from './Styles/FooterCard'
 const FooterCard = (props) => {
   return (
     // TODO add link to navigate to another screen
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity style={styles.container} testID='footer-card'>
       <Icon name={props.icon} size={22} color={Colors.secondary} />
-      <Text style={styles.contentText}>{props.text}</Text>
+      <Text style={styles.contentText} testID='footer-card-text'>{props.text}</Text>
     </TouchableOpacity>
   )
 }
