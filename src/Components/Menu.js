@@ -28,7 +28,8 @@ const Menu = (props) => {
       { top: height / 2 }, // onLayout
       { opacity: interpolateAnimation(props.translateY) } //Animation
     ]}
-      onLayout={e => handleLayout(e, setHeight)}
+      onLayout={e => module.exports.handleLayout(e, setHeight)}
+      testID='menu-container'
     >
       <ScrollView>
         <MenuItem icon='help-outline' text='Me ajuda' />
