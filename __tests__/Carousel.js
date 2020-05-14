@@ -18,8 +18,8 @@ it('renders Carousel with proper children', () => {
   // mount will create the component and execute its entire life cycle
   const wrapper = mount(<Carousel> {carouselChildren} </Carousel>)
 
-  expect(wrapper.find("[data-test-id='first-child']").at(0).text()).toEqual('first child')
-  expect(wrapper.find("[data-test-id='second-child']").at(1).text()).toEqual('second child')
+  expect(wrapper.find("[testID='first-child']").at(0).text()).toEqual('first child')
+  expect(wrapper.find("[testID='second-child']").at(1).text()).toEqual('second child')
 })
 
 it('asserts correct processing of bullets handler', () => {
