@@ -37,10 +37,10 @@ const handleBulletTestSet = [
 ]
 
 const carouselChildren = [
-  (<View data-test-id='first-child'>
+  (<View testID='first-child'>
     <Text>first child</Text>
   </View>),
-  (<Text data-test-id='second-child'>second child</Text>)
+  (<Text testID='second-child'>second child</Text>)
 ]
 
 module.exports = {

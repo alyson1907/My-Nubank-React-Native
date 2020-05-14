@@ -45,7 +45,8 @@
     "setupFiles": [
       "./src/setupTests.js",
       "./node_modules/react-native-gesture-handler/jestSetup.js"
-    ]
+    ],
+    "modulePathIgnorePatterns": ["fixtures"]
   },
   "private": true
 }
