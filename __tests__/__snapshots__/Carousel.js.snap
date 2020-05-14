@@ -60,6 +60,7 @@ exports[`renders correctly 1`] = `
     }
     decelerationRate="normal"
     horizontal={true}
+    onContentSizeChange={[Function]}
     onGestureHandlerEvent={[Function]}
     onGestureHandlerStateChange={[Function]}
     onScroll={[Function]}
