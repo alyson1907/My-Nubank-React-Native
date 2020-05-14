@@ -5,10 +5,10 @@ import styles from './Styles/Carousel'
 
 export const getPageBullets = (numberOfItems, selectedBullet) => {
   const dots = []
-  for (let idx=0; idx<numberOfItems; idx++) {
+  for (let idx = 0; idx < numberOfItems; idx++) {
     idx === selectedBullet
-    ? dots.push(<View key={idx} style={styles.selectedBullet} />)
-    : dots.push(<View key={idx} style={styles.bullet} />)
+      ? dots.push(<View key={idx} style={styles.selectedBullet} />)
+      : dots.push(<View key={idx} style={styles.bullet} />)
   }
   return (
     <View style={styles.bulletsContainer}>
