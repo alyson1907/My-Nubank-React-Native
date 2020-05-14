@@ -5,10 +5,10 @@ import styles from './Styles/Carousel'
 
 export const getPageBullets = (numberOfItems, selectedBullet) => {
   const dots = []
-  for (let idx=0; idx<numberOfItems; idx++) {
+  for (let idx = 0; idx < numberOfItems; idx++) {
     idx === selectedBullet
-    ? dots.push(<View key={idx} style={styles.selectedBullet} />)
-    : dots.push(<View key={idx} style={styles.bullet} />)
+      ? dots.push(<View key={idx} style={styles.selectedBullet} />)
+      : dots.push(<View key={idx} style={styles.bullet} />)
   }
   return (
     <View style={styles.bulletsContainer}>
@@ -17,7 +17,7 @@ export const getPageBullets = (numberOfItems, selectedBullet) => {
   )
 }
 
-export const handleBullet = e => {
+export const handleBullet = (e, width, numberOfItems, setSelectedBullet) => {
   const getItemIndex = e => {
     const contentWidth = width
     // const { width: contentWidth } = e.nativeEvent.contentSize
@@ -48,7 +48,7 @@ const Carousel = (props) => {
         onContentSizeChange={(width, height) => setWidth(width)}
         decelerationRate="normal"
         pagingEnabled
-        onScroll={handleBullet}
+        onScroll={(e) => handleBullet(e, width, numberOfItems, setSelectedBullet)}
       >
         {props.children}
       </ScrollView>
