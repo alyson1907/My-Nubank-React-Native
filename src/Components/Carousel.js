@@ -17,28 +17,28 @@ export const getPageBullets = (numberOfItems, selectedBullet) => {
   )
 }
 
+export const handleBullet = e => {
+  const getItemIndex = e => {
+    const contentWidth = width
+    // const { width: contentWidth } = e.nativeEvent.contentSize
+    const { x: contentOffset } = e.nativeEvent.contentOffset
+
+    const pageWidth = parseInt(contentWidth / numberOfItems)
+    const currentPage = Math.round(contentOffset / pageWidth)
+
+    return currentPage
+  }
+  const currentBullet = getItemIndex(e)
+  // TODO add Animation to bullet change
+  setSelectedBullet(currentBullet)
+}
+
 const Carousel = (props) => {
   const hasChildren = !!props.children
   const numberOfItems = hasChildren && props.children.length || 0
 
   const [selectedBullet, setSelectedBullet] = useState(0)
   const [width, setWidth] = useState(Dimensions.get('window').width)
-
-  const handleBullet = e => {
-    const getItemIndex = e => {
-      const contentWidth = width
-      // const { width: contentWidth } = e.nativeEvent.contentSize
-      const { x: contentOffset } = e.nativeEvent.contentOffset
-
-      const pageWidth = parseInt(contentWidth / numberOfItems)
-      const currentPage = Math.round(contentOffset / pageWidth)
-
-      return currentPage
-    }
-    const currentBullet = getItemIndex(e)
-    // TODO add Animation to bullet change
-    setSelectedBullet(currentBullet)
-  }
 
   return (
     <View style={props.style}>
