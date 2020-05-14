@@ -1,3 +1,6 @@
+import React from 'react'
+import { View, Text } from 'react-native'
+
 const handleBulletTestSet = [
   {
     input: {
@@ -33,6 +36,14 @@ const handleBulletTestSet = [
   }
 ]
 
+const carouselChildren = [
+  (<View data-test-id='first-child'>
+    <Text>first child</Text>
+  </View>),
+  (<Text data-test-id='second-child'>second child</Text>)
+]
+
 module.exports = {
-  handleBulletTestSet
+  handleBulletTestSet,
+  carouselChildren
 }
