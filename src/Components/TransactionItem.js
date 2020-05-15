@@ -1,6 +1,6 @@
 import React from 'react'
 import { View } from 'react-native'
-// import Icon from 'react-native-vector-icons/SimpleLineIcons'
+import Icon from 'react-native-vector-icons/SimpleLineIcons'
 import Text from './Text'
 import styles from './Styles/TransactionItem'
 import Colors from '../Colors'
@@ -21,7 +21,7 @@ const TransactionItem = (props) => {
   const splittedTime = splitTime(time)
   return (
     <View style={styles.container}>
-      {/* <Icon name="wallet" size={32} color={Colors.fontSecondary} /> */}
+      <Icon name="wallet" size={32} color={Colors.fontSecondary} />
       <View style={styles.txtContainer}>
         <Text style={styles.title}>{transaction.category}</Text>
         <Text style={styles.description}>{transaction.establishment}</Text>
