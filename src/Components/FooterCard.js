@@ -13,8 +13,7 @@ import styles from './Styles/FooterCard'
  * @param {String} text
  * @param {String} navigateTo Page name
  */
-const FooterCard = (props) => {
-  const navigation = useNavigation()
+const FooterCard = ({ navigation , ...props }) => {
   const navigateTo = pageName => pageName && navigation.navigate(pageName)
 
   return (

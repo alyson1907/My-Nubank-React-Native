@@ -195,7 +195,7 @@ const Home = (props) => {
       <Animated.View style={[styles.footer, { opacity: interpolatedOpacity(translateY) }]}>
         <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
           {footerCards.map(({ icon, text, navigateTo }) => (
-            <FooterCard key={text} icon={icon} text={text} navigateTo={navigateTo} />
+            <FooterCard key={text} icon={icon} text={text} navigation={props.navigation} navigateTo={navigateTo} />
           ))}
         </ScrollView>
       </Animated.View>
