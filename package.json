@@ -33,12 +33,12 @@
     "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
+    "@babel/core": "~7.9.0",
     "@babel/plugin-proposal-class-properties": "^7.8.3",
     "@babel/plugin-transform-modules-commonjs": "^7.9.6",
     "@babel/preset-env": "^7.9.6",
     "@babel/preset-flow": "^7.9.0",
     "@babel/preset-react": "^7.9.4",
-    "@babel/core": "~7.9.0",
     "@types/react": "~16.9.23",
     "@types/react-native": "~0.61.23",
     "babel-preset-expo": "~8.1.0",
@@ -46,10 +46,10 @@
     "enzyme-adapter-react-16": "^1.15.2",
     "enzyme-to-json": "^3.4.4",
     "jest": "^26.0.1",
-    "jest-expo": "~37.0.0",
+    "jest-expo": "^37.0.0",
     "jsdom": "16.2.2",
     "jsdom-global": "3.0.2",
-    "typescript": "~3.8.3"
+    "typescript": "^3.8.3"
   },
   "jest": {
     "preset": "react-native",
