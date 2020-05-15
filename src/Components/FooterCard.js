@@ -19,7 +19,7 @@ const FooterCard = (props) => {
 
   return (
     // TODO add link to navigate to another screen
-    <TouchableOpacity style={styles.container} onPress={() => navigateTo(props.navigateTo) testID='footer-card'>
+    <TouchableOpacity style={styles.container} onPress={() => navigateTo(props.navigateTo)} testID='footer-card'>
       <Icon name={props.icon} size={22} color={Colors.secondary} />
       <Text style={styles.contentText} testID='footer-card-text'>{props.text}</Text>
     </TouchableOpacity>
