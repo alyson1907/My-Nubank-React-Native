@@ -7,7 +7,8 @@ const Colors = {
   fontSecondaryAlternative: '#333',
   fontColorfulPrimary: '#3398bd',
   fontColorfulSecondary: '#79c73e',
-  brightGrey: '#dbdbdb'
+  brightGrey: '#dbdbdb',
+  backgroundPrimary: '#eee'
 }
 
 module.exports = Colors 

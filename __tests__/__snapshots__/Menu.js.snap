@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Menu Tests renders Menu and compares with snapshot 1`] = `
+<AnimatedComponent
+  onLayout={[Function]}
+  style={
+    Array [
+      Object {
+        "position": "absolute",
+        "width": "100%",
+        "zIndex": -1,
+      },
+      Object {
+        "top": 667,
+      },
+      Object {
+        "opacity": undefined,
+      },
+    ]
+  }
+  testID="menu-container"
+>
+  <ComponentWrapper>
+    <MenuItem
+      icon="help-outline"
+      text="Me ajuda"
+    />
+    <MenuItem
+      icon="person-outline"
+      text="Perfil"
+    />
+    <MenuItem
+      icon="credit-card"
+      text="Configurar cartão"
+    />
+    <MenuItem
+      icon="smartphone"
+      text="Configurações do App"
+    />
+  </ComponentWrapper>
+</AnimatedComponent>
+`;

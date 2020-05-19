@@ -5,15 +5,17 @@
     "ios": "react-native run-ios",
     "web": "expo start --web",
     "start": "react-native start",
-    "test": "jest",
-    "test:coverage": "jest --coverage"
+    "test": "jest --silent",
+    "test:coverage": "jest --silent --coverage"
   },
   "dependencies": {
+    "@react-native-community/async-storage": "^1.10.0",
     "@react-native-community/masked-view": "^0.1.10",
     "@react-navigation/native": "^5.2.4",
     "@react-navigation/stack": "^5.2.19",
     "expo": "~37.0.3",
     "expo-updates": "~0.1.0",
+    "moment": "^2.25.3",
     "react": "~16.9.0",
     "react-dom": "~16.9.0",
     "react-native": "~0.61.5",
@@ -23,15 +25,31 @@
     "react-native-screens": "^2.2.0",
     "react-native-unimodules": "~0.9.0",
     "react-native-vector-icons": "^6.6.0",
-    "react-native-web": "~0.11.7"
+    "react-native-web": "~0.11.7",
+    "react-navigation": "^4.3.9",
+    "react-redux": "^7.2.0",
+    "redux": "^4.0.5",
+    "redux-persist": "^6.0.0",
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
     "@babel/core": "~7.9.0",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-transform-modules-commonjs": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "@babel/preset-flow": "^7.9.0",
+    "@babel/preset-react": "^7.9.4",
     "@types/react": "~16.9.23",
     "@types/react-native": "~0.61.23",
     "babel-preset-expo": "~8.1.0",
-    "jest-expo": "~37.0.0",
-    "typescript": "~3.8.3"
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "enzyme-to-json": "^3.4.4",
+    "jest": "^26.0.1",
+    "jest-expo": "^37.0.0",
+    "jsdom": "16.2.2",
+    "jsdom-global": "3.0.2",
+    "typescript": "^3.8.3"
   },
   "jest": {
     "preset": "react-native",
@@ -41,6 +59,12 @@
     "setupFiles": [
       "./src/setupTests.js",
       "./node_modules/react-native-gesture-handler/jestSetup.js"
+    ],
+    "modulePathIgnorePatterns": [
+      "fixtures"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
     ]
   },
   "private": true

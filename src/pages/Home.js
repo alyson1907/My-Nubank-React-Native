@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { View, Animated } from "react-native"
 import Text from '../Components/Text'
 import { ScrollView, TouchableOpacity, PanGestureHandler, State } from 'react-native-gesture-handler'
@@ -9,9 +9,24 @@ import Menu from '../Components/Menu'
 import MainCard from '../Components/MainCard'
 import FooterCard from '../Components/FooterCard'
 import styles from './Styles/Home'
+// Redux
+import { connect } from 'react-redux'
+import actions from '../redux/actions'
 
+import { getTotalValue } from '../helpers'
 
-const Home = () => {
+const Home = (props) => {
+
+  useEffect(() => {
+    const loadTransactions = async () => {
+      await props.fetchTransactions()
+    }
+    loadTransactions()
+  }, [])
+
+  // Redux (transactions)
+  const totalSpent = getTotalValue(props.transactions)
+  // Animations
   const maxTranslation = 256
   let lastPosition = 0
 
@@ -32,12 +47,13 @@ const Home = () => {
           <Text style={styles.creditCard}>FATURA ATUAL</Text>
           <Text style={styles.creditCardValue}>
             R$
-            <Text style={{ fontWeight: 'bold' }}>135</Text>
-            ,50
+      <Text style={{ fontWeight: 'bold' }}>{totalSpent.integer}</Text>
+            ,{totalSpent.cents}
           </Text>
           <Text style={styles.creditCardLimit}>Limite disponível <Text style={styles.creditCardLimitValue}>R$ 600,00</Text></Text>
         </View>
-      )
+      ),
+      navigateTo: 'TransactionHistory'
     },
     {
       header: {
@@ -72,9 +88,9 @@ const Home = () => {
 
   const footerCards = [
     { icon: 'creditcard', text: 'Cartão de Crédito' },
+    { icon: 'sync', text: 'Depositar', navigateTo: 'Deposit' },
+    { icon: 'barcode', text: 'Pagar', navigateTo: 'Payment' },
     { icon: 'adduser', text: 'Indicar Amigo' },
-    { icon: 'arrowup', text: 'Depositar' },
-    { icon: 'barcode', text: 'Pagar' },
     { icon: 'adduser', text: 'Indicar Amigo2' },
     { icon: 'adduser', text: 'Indicar Amigo3' },
   ]
@@ -151,7 +167,7 @@ const Home = () => {
   return (
     <View style={styles.container}>
       <AppHeader />
-      <Menu translateY={translateY} />
+      <Menu translateY={translateY} navigation={props.navigation} />
 
       {/* Content in Center of HomeScreen */}
       <PanGestureHandler
@@ -166,7 +182,7 @@ const Home = () => {
           <Carousel style={styles.content} bullets>
             {mainCards.map((card, idx) => {
               return (
-                <MainCard key={idx} header={card.header} footer={card.footer}>
+                <MainCard key={idx} header={card.header} footer={card.footer} navigateTo={card.navigateTo}>
                   {card.content()}
                 </MainCard>
               )
@@ -178,8 +194,8 @@ const Home = () => {
       {/* Footer Menu */}
       <Animated.View style={[styles.footer, { opacity: interpolatedOpacity(translateY) }]}>
         <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-          {footerCards.map(({ icon, text }) => (
-            <FooterCard key={text} icon={icon} text={text} />
+          {footerCards.map(({ icon, text, navigateTo }) => (
+            <FooterCard key={text} icon={icon} text={text} navigation={props.navigation} navigateTo={navigateTo} />
           ))}
         </ScrollView>
       </Animated.View>
@@ -187,4 +203,16 @@ const Home = () => {
   )
 }
 
-export default Home
+const mapStateToProps = state => {
+  return {
+    transactions: state.trans.transactionList
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchTransactions: () => dispatch(actions.transactions.fetchTransactions())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home)
