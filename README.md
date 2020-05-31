@@ -1,7 +1,7 @@
 ## Objective
 This project was implemented in order to apply and practice `React-Native` concepts.
 
-Although the project idea was inspired in a video from *Rocketseat*, the entire implementation was done independently.
+Although the project idea was inspired by a video from *Rocketseat*, the entire implementation was done independently.
 
 ## Examples
 
