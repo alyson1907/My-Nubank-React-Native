@@ -5,6 +5,10 @@ Although the project idea was inspired in a video from *Rocketseat*, the entire 
 
 ## Examples
 
+Custom animation | Menu screens | Fetching transactions |
+---|---|---|
+ ![](./demos/nub1.gif) | ![](./demos/nub2.gif) | ![](./demos/nub3.gif)
+
 ## Description
 The project implements an prototype of Nubank in `React-Native`, using the following concepts:
 - Componentization
